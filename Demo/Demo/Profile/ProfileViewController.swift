@@ -52,7 +52,9 @@ final class ProfileViewController: UIViewController {
         tableViewManager.register(HeaderView.self)
         tableViewManager.register(FooterView.self)
         tableViewManager.register(HeaderCell.self)
+        tableViewManager.register(AboutCell.self)
         tableViewManager.register(ExperienceCell.self)
+        tableViewManager.register(EducationCell.self)
         tableViewManager.register(SkillCell.self)
         
         view.addSubview(tableView)

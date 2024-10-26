@@ -15,37 +15,12 @@
 //
 
 import Foundation
+import SmartListing
 
-struct Profile {
-    let headerInfo: HeaderInfo
-    let about: String
-    let experiences: [Experience]
-    let education: [Education]
-    let skills: [Skill]
-}
-
-struct HeaderInfo {
-    let name: String
-    let bannerImage: String
-    let profileImage: String
-    let headline: String
-    let location: String
-}
-
-struct Education {
-    let logoImage: String
-    let institution: String
-    let field: String
-    let duration: String
-}
-
-struct Experience {
-    let logoImage: String
-    let jobTitle: String
-    let company: String
-    let duration: String
-}
-
-struct Skill {
-    let name: String
+final class AboutCellViewModel: CellViewModel {
+    let detail: String
+    
+    init(detail: String) {
+        self.detail = detail
+    }
 }

@@ -58,6 +58,17 @@ final class ProfileViewModel {
                 headline: "Sr. Software Engineer | iOS | Swift",
                 location: "Pakistan"
             ),
+            about: """
+                   I specialize in mobile app development. My past projects included working with complex UI and custom views, web services and REST API's, push notifications, SQLite databases, background services, integration with social networks and in-app purchases.
+
+                   Technical Skills:
+                   ✓ Languages: Swift, Kotlin, JAVA, C/C++
+                   ✓ Revision Control: Git, SourceTree
+                   ✓ CI/CD: Bitrise, GitHub Actions
+                   ✓ Development Software: Xcode, Android Studio, Visual Studio Code
+                   ✓ Typography: FreeType, HarfBuzz, OpenType
+                   ✓ Open Source: SheenBidi, Tehreer-Android, Tehreer-Cocoa, SmartListing
+                   """,
             experiences: [
                 Experience(
                     logoImage: "SadaPayLogo",
@@ -96,6 +107,14 @@ final class ProfileViewModel {
                     duration: "Sep 2015 - Nov 2017 · 2 yrs 3 mos"
                 )
             ],
+            education: [
+                Education(
+                    logoImage: "PunjabUniversityLogo",
+                    institution: "University of the Punjab",
+                    field: "Bachelor’s Degree, Information Technology",
+                    duration: "2011 - 2015"
+                )
+            ],
             skills: [
                 Skill(name: "iOS Development"),
                 Skill(name: "Swift"),
@@ -116,6 +135,13 @@ final class ProfileViewModel {
                 ]
             ),
             Section(
+                header: HeaderViewModel(heading: "About"),
+                footer: FooterViewModel(),
+                items: [
+                    Loadable.loaded(AboutCellViewModel(detail: profile.about))
+                ]
+            ),
+            Section(
                 header: HeaderViewModel(heading: "Experience"),
                 footer: FooterViewModel(),
                 items: profile.experiences
@@ -125,6 +151,20 @@ final class ProfileViewModel {
                             ExperienceCellViewModel(
                                 experience: experience,
                                 isLast: index == profile.experiences.count - 1
+                            )
+                        )
+                    }
+            ),
+            Section(
+                header: HeaderViewModel(heading: "Education"),
+                footer: FooterViewModel(),
+                items: profile.education
+                    .enumerated()
+                    .map { index, education in
+                        Loadable.loaded(
+                            EducationCellViewModel(
+                                education: education,
+                                isLast: index == profile.education.count - 1
                             )
                         )
                     }

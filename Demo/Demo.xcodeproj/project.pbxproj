@@ -25,6 +25,12 @@
 		6E16BC652CCD057A00A2D61F /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16BC632CCD057A00A2D61F /* SkillCell.swift */; };
 		6E16BC662CCD057A00A2D61F /* SkillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E16BC642CCD057A00A2D61F /* SkillCell.xib */; };
 		6E16BC682CCD061000A2D61F /* SkillCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16BC672CCD061000A2D61F /* SkillCellViewModel.swift */; };
+		6E16BC6C2CCD14BF00A2D61F /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16BC6A2CCD14BF00A2D61F /* AboutCell.swift */; };
+		6E16BC6D2CCD14BF00A2D61F /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E16BC6B2CCD14BF00A2D61F /* AboutCell.xib */; };
+		6E16BC6F2CCD14E100A2D61F /* AboutCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16BC6E2CCD14E100A2D61F /* AboutCellViewModel.swift */; };
+		6E16BC802CCD1BC400A2D61F /* EducationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16BC7E2CCD1BC400A2D61F /* EducationCell.swift */; };
+		6E16BC812CCD1BC400A2D61F /* EducationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E16BC7F2CCD1BC400A2D61F /* EducationCell.xib */; };
+		6E16BC832CCD1BD100A2D61F /* EducationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16BC822CCD1BD100A2D61F /* EducationCellViewModel.swift */; };
 		6E313F882C9C68C9005F31AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E313F872C9C68C9005F31AE /* AppDelegate.swift */; };
 		6E313F8A2C9C68C9005F31AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E313F892C9C68C9005F31AE /* SceneDelegate.swift */; };
 		6E313F8C2C9C68C9005F31AE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E313F8B2C9C68C9005F31AE /* MainViewController.swift */; };
@@ -51,6 +57,12 @@
 		6E16BC632CCD057A00A2D61F /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		6E16BC642CCD057A00A2D61F /* SkillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillCell.xib; sourceTree = "<group>"; };
 		6E16BC672CCD061000A2D61F /* SkillCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCellViewModel.swift; sourceTree = "<group>"; };
+		6E16BC6A2CCD14BF00A2D61F /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		6E16BC6B2CCD14BF00A2D61F /* AboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
+		6E16BC6E2CCD14E100A2D61F /* AboutCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCellViewModel.swift; sourceTree = "<group>"; };
+		6E16BC7E2CCD1BC400A2D61F /* EducationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationCell.swift; sourceTree = "<group>"; };
+		6E16BC7F2CCD1BC400A2D61F /* EducationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EducationCell.xib; sourceTree = "<group>"; };
+		6E16BC822CCD1BD100A2D61F /* EducationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationCellViewModel.swift; sourceTree = "<group>"; };
 		6E313F842C9C68C9005F31AE /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E313F872C9C68C9005F31AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E313F892C9C68C9005F31AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +99,8 @@
 		6E16BC332CCCD16900A2D61F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6E16BC692CCD14A200A2D61F /* AboutCell */,
+				6E16BC7D2CCD1BAD00A2D61F /* EducationCell */,
 				6E16BC5B2CCCF3AB00A2D61F /* ExperienceCell */,
 				6E16BC4F2CCCE2BC00A2D61F /* FooterView */,
 				6E16BC392CCCD28400A2D61F /* HeaderCell */,
@@ -151,6 +165,26 @@
 				6E16BC672CCD061000A2D61F /* SkillCellViewModel.swift */,
 			);
 			path = SkillCell;
+			sourceTree = "<group>";
+		};
+		6E16BC692CCD14A200A2D61F /* AboutCell */ = {
+			isa = PBXGroup;
+			children = (
+				6E16BC6A2CCD14BF00A2D61F /* AboutCell.swift */,
+				6E16BC6B2CCD14BF00A2D61F /* AboutCell.xib */,
+				6E16BC6E2CCD14E100A2D61F /* AboutCellViewModel.swift */,
+			);
+			path = AboutCell;
+			sourceTree = "<group>";
+		};
+		6E16BC7D2CCD1BAD00A2D61F /* EducationCell */ = {
+			isa = PBXGroup;
+			children = (
+				6E16BC7E2CCD1BC400A2D61F /* EducationCell.swift */,
+				6E16BC7F2CCD1BC400A2D61F /* EducationCell.xib */,
+				6E16BC822CCD1BD100A2D61F /* EducationCellViewModel.swift */,
+			);
+			path = EducationCell;
 			sourceTree = "<group>";
 		};
 		6E313F7B2C9C68C9005F31AE = {
@@ -251,10 +285,12 @@
 				6E16BC3D2CCCD2C200A2D61F /* HeaderCell.xib in Resources */,
 				6E16BC532CCCE3D700A2D61F /* FooterView.xib in Resources */,
 				6E16BC5A2CCCEF7C00A2D61F /* HeaderView.xib in Resources */,
+				6E16BC6D2CCD14BF00A2D61F /* AboutCell.xib in Resources */,
 				6E313F942C9C68CB005F31AE /* LaunchScreen.storyboard in Resources */,
 				6E313F912C9C68CB005F31AE /* Assets.xcassets in Resources */,
 				6E16BC5F2CCCF3EE00A2D61F /* ExperienceCell.xib in Resources */,
 				6E313F8F2C9C68C9005F31AE /* Main.storyboard in Resources */,
+				6E16BC812CCD1BC400A2D61F /* EducationCell.xib in Resources */,
 				6E16BC662CCD057A00A2D61F /* SkillCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,11 +302,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E16BC6F2CCD14E100A2D61F /* AboutCellViewModel.swift in Sources */,
 				6E313F8C2C9C68C9005F31AE /* MainViewController.swift in Sources */,
 				6E313F882C9C68C9005F31AE /* AppDelegate.swift in Sources */,
+				6E16BC832CCD1BD100A2D61F /* EducationCellViewModel.swift in Sources */,
 				6E16BC352CCCD19200A2D61F /* ProfileViewController.swift in Sources */,
 				6E16BC512CCCE30200A2D61F /* FooterView.swift in Sources */,
 				6E16BC4E2CCCD99F00A2D61F /* ProfileModels.swift in Sources */,
+				6E16BC802CCD1BC400A2D61F /* EducationCell.swift in Sources */,
+				6E16BC6C2CCD14BF00A2D61F /* AboutCell.swift in Sources */,
 				6E16BC562CCCEEE800A2D61F /* HeaderView.swift in Sources */,
 				6E16BC3F2CCCD30B00A2D61F /* HeaderCellViewModel.swift in Sources */,
 				6E313F8A2C9C68C9005F31AE /* SceneDelegate.swift in Sources */,
