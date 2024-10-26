@@ -17,22 +17,22 @@
 import SmartListing
 import UIKit
 
-final class HeaderCell: UITableViewCell, TableViewCellProtocol {
+final class HeaderCell: UITableViewCell, TableViewCellProtocol, ShimmeringViewProtocol {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var bannerImageView: UIImageView!
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var headlineLabel: UILabel!
+    
+    var shimmeringAnimatedItems: [UIView] {
+        return [nameLabel, bannerImageView, profileImageView, headlineLabel]
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     func configure(with viewModel: Loadable<HeaderCellViewModel>) {
-        if viewModel.isLoading {
-            // Start Shimmering.
-        } else {
-            // Stop Shimmering.
-        }
+        setShimmering(viewModel.isLoading)
         
         if let viewModel = viewModel.value {
             nameLabel.text = viewModel.name

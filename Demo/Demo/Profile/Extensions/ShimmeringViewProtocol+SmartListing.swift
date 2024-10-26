@@ -14,21 +14,18 @@
 // limitations under the License.
 //
 
-import SmartListing
-import UIKit
+import Foundation
+import UIView_Shimmer
 
-final class HeaderView: UITableViewHeaderFooterView, TableViewHeaderFooterViewProtocol, ShimmeringViewProtocol {
-    @IBOutlet private weak var headingLabel: UILabel!
-    
-    var shimmeringAnimatedItems: [UIView] {
-        return [headingLabel]
-    }
-    
-    func configure(with viewModel: Loadable<HeaderViewModel>) {
-        setShimmering(viewModel.isLoading)
-        
-        if let viewModel = viewModel.value {
-            headingLabel.text = viewModel.heading
-        }
+typealias ShimmeringViewProtocol = UIView_Shimmer.ShimmeringViewProtocol
+
+extension ShimmeringViewProtocol {
+    func setShimmering(_ isShimmering: Bool) {
+        setTemplateWithSubviews(
+            isShimmering,
+            color: .lightGray,
+            animate: true,
+            viewBackgroundColor: .white
+        )
     }
 }

@@ -17,20 +17,20 @@
 import SmartListing
 import UIKit
 
-final class SkillCell: UITableViewCell, TableViewCellProtocol {
+final class SkillCell: UITableViewCell, TableViewCellProtocol, ShimmeringViewProtocol {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var separatorView: UIView!
+    
+    var shimmeringAnimatedItems: [UIView] {
+        return [nameLabel]
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     func configure(with viewModel: Loadable<SkillCellViewModel>) {
-        if viewModel.isLoading {
-            // Start Shimmering.
-        } else {
-            // Stop Shimmering.
-        }
+        setShimmering(viewModel.isLoading)
         
         if let viewModel = viewModel.value {
             nameLabel.text = viewModel.name

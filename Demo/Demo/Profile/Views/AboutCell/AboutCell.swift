@@ -17,19 +17,19 @@
 import SmartListing
 import UIKit
 
-final class AboutCell: UITableViewCell, TableViewCellProtocol {
+final class AboutCell: UITableViewCell, TableViewCellProtocol, ShimmeringViewProtocol {
     @IBOutlet private weak var detailLabel: UILabel!
+    
+    var shimmeringAnimatedItems: [UIView] {
+        return [detailLabel]
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     func configure(with viewModel: Loadable<AboutCellViewModel>) {
-        if viewModel.isLoading {
-            // Start Shimmering.
-        } else {
-            // Stop Shimmering.
-        }
+        setShimmering(viewModel.isLoading)
         
         if let viewModel = viewModel.value {
             detailLabel.text = viewModel.detail

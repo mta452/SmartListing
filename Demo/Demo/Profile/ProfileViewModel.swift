@@ -35,16 +35,62 @@ private struct Section {
 
 final class ProfileViewModel {
     private var profile: Profile?
-    private var sections: [Section]
+    private var sections: [Section] = []
     
-    private(set) var isLoading = true
+    private(set) var isLoading = false
     
     var onLoadingStateChanged: (() -> Void)?
     
-    init() {
+    func loadData() {
+        isLoading = true
+        setupSkeletonSections()
+        onLoadingStateChanged?()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let self else { return }
+            
+            loadProfile()
+            populateProfileSections()
+            
+            isLoading = false
+            onLoadingStateChanged?()
+        }
+    }
+    
+    private func setupSkeletonSections() {
         sections = [
             Section(
-                items: [Loadable<HeaderCellViewModel>.loading]
+                items: [
+                    Loadable<HeaderCellViewModel>.loading
+                ]
+            ),
+            Section(
+                header: Loadable<HeaderViewModel>.loading,
+                items: [
+                    Loadable<AboutCellViewModel>.loading
+                ]
+            ),
+            Section(
+                header: Loadable<HeaderViewModel>.loading,
+                items: [
+                    Loadable<ExperienceCellViewModel>.loading,
+                    Loadable<ExperienceCellViewModel>.loading,
+                    Loadable<ExperienceCellViewModel>.loading
+                ]
+            ),
+            Section(
+                header: Loadable<HeaderViewModel>.loading,
+                items: [
+                    Loadable<EducationCellViewModel>.loading
+                ]
+            ),
+            Section(
+                header: Loadable<HeaderViewModel>.loading,
+                items: [
+                    Loadable<SkillCellViewModel>.loading,
+                    Loadable<SkillCellViewModel>.loading,
+                    Loadable<SkillCellViewModel>.loading,
+                ]
             )
         ]
     }
@@ -123,9 +169,11 @@ final class ProfileViewModel {
         )
     }
     
-    func loadData() {
-        loadProfile()
-        guard let profile else { return }
+    private func populateProfileSections() {
+        guard let profile else {
+            sections = []
+            return
+        }
         
         sections = [
             Section(
@@ -135,14 +183,14 @@ final class ProfileViewModel {
                 ]
             ),
             Section(
-                header: HeaderViewModel(heading: "About"),
+                header: Loadable.loaded(HeaderViewModel(heading: "About")),
                 footer: FooterViewModel(),
                 items: [
                     Loadable.loaded(AboutCellViewModel(detail: profile.about))
                 ]
             ),
             Section(
-                header: HeaderViewModel(heading: "Experience"),
+                header: Loadable.loaded(HeaderViewModel(heading: "Experience")),
                 footer: FooterViewModel(),
                 items: profile.experiences
                     .enumerated()
@@ -156,7 +204,7 @@ final class ProfileViewModel {
                     }
             ),
             Section(
-                header: HeaderViewModel(heading: "Education"),
+                header: Loadable.loaded(HeaderViewModel(heading: "Education")),
                 footer: FooterViewModel(),
                 items: profile.education
                     .enumerated()
@@ -170,7 +218,7 @@ final class ProfileViewModel {
                     }
             ),
             Section(
-                header: HeaderViewModel(heading: "Skills"),
+                header: Loadable.loaded(HeaderViewModel(heading: "Skills")),
                 footer: FooterViewModel(),
                 items: profile.skills
                     .enumerated()

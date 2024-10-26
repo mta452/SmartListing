@@ -17,23 +17,23 @@
 import SmartListing
 import UIKit
 
-final class ExperienceCell: UITableViewCell, TableViewCellProtocol {
+final class ExperienceCell: UITableViewCell, TableViewCellProtocol, ShimmeringViewProtocol {
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var jobTitleLabel: UILabel!
     @IBOutlet private weak var companyLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var separatorView: UIView!
     
+    var shimmeringAnimatedItems: [UIView] {
+        return [logoImageView, jobTitleLabel, companyLabel, durationLabel]
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     func configure(with viewModel: Loadable<ExperienceCellViewModel>) {
-        if viewModel.isLoading {
-            // Start Shimmering.
-        } else {
-            // Stop Shimmering.
-        }
+        setShimmering(viewModel.isLoading)
         
         if let viewModel = viewModel.value {
             logoImageView.image = UIImage(named: viewModel.logoImage)
